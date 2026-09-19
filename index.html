@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just For You ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <main class="app">
+    <section class="screen active" id="screen1">
+      <div class="eyebrow">A little something for you</div>
+      <div class="gift">🎁</div>
+      <h1>I made this<br><span>just for you.</span></h1>
+      <p>There is something I really want to tell you.</p>
+      <button class="primary" data-next="screen2">Open it ❤️</button>
+    </section>
+
+    <section class="screen" id="screen2">
+      <div class="photo-frame">
+        <img src="images/photo1.jpg" alt="A favorite memory" onerror="this.style.display='none';this.parentElement.classList.add('placeholder')">
+        <span class="photo-fallback">Your photo here 📷</span>
+      </div>
+      <div class="eyebrow">For <span id="personName">Your Favorite Person</span></div>
+      <h2>I am truly sorry ❤️‍🩹</h2>
+      <p class="message">
+      I know I hurt you, and honestly, I’m deeply sorry for that. 🥺❤️<br><br>
+
+      I keep thinking about what happened, and I wish I could go back and change the moment when I made you feel hurt. I know saying “sorry” cannot simply undo what happened, but I want you to know that I truly mean it from my heart. 💔<br><br>
+
+      You are someone very special to me, and the last thing I ever wanted was to become the reason for your sadness. If my words or actions made you feel unimportant, ignored, or hurt, I am genuinely sorry. 🫂❤️<br><br>
+
+      I’m not going to make excuses or ask you to forget what happened. I just want to take responsibility for my mistake and tell you that I regret hurting someone who means so much to me. 🌸<br><br>
+
+      Please take all the time you need. I understand if you need some space. I only hope that, someday, you can see how sincerely I am sorry. 🥺🤍<br><br>
+
+      No matter what, I’ll always be grateful for the beautiful moments, the conversations, the smiles, and all the little things that made knowing you so special. ❤️✨<br><br>
+
+      I’m really, really sorry. 🥺❤️‍🩹<br>
+      I never wanted to hurt you.
+      </p>
+      <button class="primary" data-next="screen3">Read this ❤️</button>
+    </section>
+
+    <section class="screen" id="screen3">
+      <div class="quote-mark">“</div>
+      <h2>If I could go back...</h2>
+      <p class="message">I would choose my words more carefully, listen better, and make sure you never had to feel hurt because of me.</p>
+      <p class="message">You mean much more to me than one bad moment. I don't expect you to forget everything immediately. I only hope you can see how sincerely I am saying sorry.</p>
+      <button class="primary" data-next="screen4">One more thing →</button>
+    </section>
+
+    <section class="screen" id="screen4">
+      <div class="gallery">
+        <div class="memory"><img src="images/photo2.jpg" alt="Memory 2" onerror="this.style.display='none'"></div>
+        <div class="memory"><img src="images/photo3.jpg" alt="Memory 3" onerror="this.style.display='none'"></div>
+        <div class="memory"><img src="images/photo4.jpg" alt="Memory 4" onerror="this.style.display='none'"></div>
+      </div>
+      <h2>Thank you for being you.</h2>
+      <p class="message">All the little memories, laughs, conversations and moments with you are important to me. I never want one mistake to erase how much I value you.</p>
+      <button class="primary" data-next="screen5">The last page 💌</button>
+    </section>
+
+    <section class="screen" id="screen5">
+      <div class="final-heart">♥</div>
+      <div class="eyebrow">From me, sincerely</div>
+      <h2 id="finalHeading">I'm sorry, truly.</h2>
+      <p class="message" id="finalMessage">I hope, when you are ready, you can forgive me. No pressure. I just wanted you to know that I am genuinely sorry and that you matter to me.</p>
+      <p class="signature">— <span id="senderName">Your Name</span></p>
+      <button class="ghost" id="restart">Read it again</button>
+    </section>
+  </main>
+
+  <div class="music-note" id="musicNote">♫</div>
+  <audio id="music" loop preload="none">
+    <source src="music/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

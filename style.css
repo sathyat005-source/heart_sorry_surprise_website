@@ -1,0 +1,704 @@
+:root {
+  --bg: #fff7f8;
+  --ink: #321f28;
+  --muted: #7b626c;
+  --accent: #c94f70;
+  --accent2: #f3b7c6;
+  --card: rgba(255, 255, 255, 0.82);
+  --border: rgba(120, 50, 70, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--ink);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      #ffe3ea 0,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      #f8d8e2 0,
+      transparent 28%
+    ),
+    var(--bg);
+}
+
+/* ==============================
+   MAIN APP
+   ============================== */
+
+.app {
+  width: min(100%, 760px);
+  padding: 24px;
+}
+
+/* ==============================
+   SCREEN / PAGE
+   ============================== */
+
+.screen {
+  display: none;
+
+  min-height: 650px;
+
+  padding: 48px 28px;
+
+  text-align: center;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 32px;
+
+  box-shadow:
+    0 24px 70px rgba(80, 35, 50, 0.10);
+
+  backdrop-filter: blur(14px);
+}
+
+.screen.active {
+  display: flex;
+  animation: enter 0.7s ease both;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==============================
+   TEXT
+   ============================== */
+
+.eyebrow {
+  text-transform: uppercase;
+
+  letter-spacing: 0.16em;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  color: var(--accent);
+
+  margin-bottom: 18px;
+}
+
+h1,
+h2 {
+  font-family: "DM Serif Display", Georgia, serif;
+
+  font-weight: 400;
+
+  line-height: 1.02;
+
+  margin: 8px 0 18px;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 5.8rem);
+}
+
+h1 span {
+  color: var(--accent);
+}
+
+h2 {
+  font-size: clamp(2.4rem, 7vw, 4.3rem);
+}
+
+p {
+  line-height: 1.75;
+
+  color: var(--muted);
+
+  max-width: 570px;
+
+  margin: 0 auto 26px;
+}
+
+.message {
+  font-size: 1.02rem;
+}
+
+/* ==============================
+   GIFT
+   ============================== */
+
+.gift {
+  font-size: 6rem;
+
+  filter:
+    drop-shadow(
+      0 12px 20px rgba(201, 79, 112, 0.15)
+    );
+
+  animation:
+    float 2.8s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% {
+    transform:
+      translateY(-12px)
+      rotate(2deg);
+  }
+}
+
+/* ==============================
+   BUTTONS
+   ============================== */
+
+.primary,
+.ghost {
+  border: 0;
+
+  border-radius: 999px;
+
+  padding: 15px 24px;
+
+  font: 600 1rem Inter;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.primary {
+  background: var(--accent);
+
+  color: white;
+
+  box-shadow:
+    0 10px 25px rgba(201, 79, 112, 0.22);
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+}
+
+.ghost {
+  background: transparent;
+
+  color: var(--accent);
+
+  border: 1px solid var(--border);
+}
+
+/* ==================================================
+   SECOND PAGE MAIN PHOTO
+   ================================================== */
+
+.photo-frame {
+  width: min(100%, 360px);
+
+  height: 360px;
+
+  margin: 0 auto 30px;
+
+  border-radius: 26px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8ccd8,
+      #ffffff
+    );
+
+  box-shadow:
+    0 18px 40px rgba(80, 35, 50, 0.13);
+
+  flex-shrink: 0;
+}
+
+.photo-frame img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  margin: 0;
+}
+
+.photo-fallback {
+  display: none;
+
+  color: var(--accent);
+
+  font-weight: 600;
+
+  position: absolute;
+
+  inset: 0;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.photo-frame.placeholder .photo-fallback {
+  display: flex;
+}
+
+/* ==============================
+   QUOTE
+   ============================== */
+
+.quote-mark {
+  font-family: Georgia, serif;
+
+  font-size: 7rem;
+
+  line-height: 0.5;
+
+  color: var(--accent2);
+}
+
+/* ==================================================
+   LAST PAGE PHOTO GALLERY
+   ================================================== */
+
+.gallery {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin: 0 auto 32px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+
+  align-items: stretch;
+
+  justify-content: center;
+}
+
+/* Each photo container */
+
+.memory {
+  width: 100%;
+
+  height: 220px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f6d0da,
+      #ffffff
+    );
+
+  box-shadow:
+    0 12px 30px rgba(80, 35, 50, 0.10);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+/* All 3 images */
+
+.memory img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  margin: 0;
+
+  transition:
+    transform 0.35s ease;
+}
+
+/* Slight zoom when hovering */
+
+.memory:hover img {
+  transform: scale(1.04);
+}
+
+/* ==============================
+   FINAL HEART
+   ============================== */
+
+.final-heart {
+  font-size: 5rem;
+
+  color: var(--accent);
+
+  animation:
+    pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+/* ==============================
+   SIGNATURE
+   ============================== */
+
+.signature {
+  font-family:
+    "DM Serif Display",
+    Georgia,
+    serif;
+
+  font-size: 1.4rem;
+
+  color: var(--ink);
+}
+
+/* ==============================
+   MUSIC BUTTON
+   ============================== */
+
+.music-note {
+  position: fixed;
+
+  right: 18px;
+
+  bottom: 18px;
+
+  width: 44px;
+
+  height: 44px;
+
+  border-radius: 50%;
+
+  display: grid;
+
+  place-items: center;
+
+  background: white;
+
+  border: 1px solid var(--border);
+
+  color: var(--accent);
+
+  font-size: 1.2rem;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.08);
+
+  cursor: pointer;
+
+  z-index: 100;
+}
+
+/* ==============================
+   FLOATING HEARTS
+   ============================== */
+
+.heart {
+  position: fixed;
+
+  bottom: -20px;
+
+  pointer-events: none;
+
+  animation:
+    rise linear forwards;
+
+  opacity: 0.65;
+
+  z-index: 0;
+}
+
+@keyframes rise {
+  to {
+    transform:
+      translateY(-110vh)
+      rotate(360deg);
+
+    opacity: 0;
+  }
+}
+
+/* ==================================================
+   TABLET
+   ================================================== */
+
+@media (max-width: 700px) {
+
+  .gallery {
+    max-width: 500px;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 14px;
+  }
+
+  .memory {
+    height: 210px;
+  }
+
+  /*
+     Third photo goes to the
+     center of the second row.
+  */
+
+  .memory:last-child {
+    grid-column: 1 / -1;
+
+    width: 50%;
+
+    justify-self: center;
+  }
+}
+
+/* ==================================================
+   MOBILE
+   ================================================== */
+
+@media (max-width: 600px) {
+
+  .app {
+    width: 100%;
+
+    padding: 12px;
+  }
+
+  .screen {
+    min-height:
+      calc(100vh - 24px);
+
+    padding: 35px 20px;
+
+    border-radius: 24px;
+  }
+
+  /* --------------------------------
+     SECOND PAGE PHOTO
+     -------------------------------- */
+
+  .photo-frame {
+    width: min(100%, 320px);
+
+    height: 320px;
+
+    margin: 0 auto 26px;
+
+    border-radius: 22px;
+  }
+
+  .photo-frame img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center center;
+  }
+
+  /* --------------------------------
+     TEXT
+     -------------------------------- */
+
+  .message {
+    font-size: 0.98rem;
+
+    line-height: 1.7;
+  }
+
+  h2 {
+    font-size:
+      clamp(
+        2.2rem,
+        10vw,
+        3.2rem
+      );
+  }
+
+  /* --------------------------------
+     LAST PAGE GALLERY
+     -------------------------------- */
+
+  .gallery {
+    width: 100%;
+
+    max-width: 420px;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin:
+      0 auto 28px;
+  }
+
+  .memory {
+    width: 100%;
+
+    height: 170px;
+
+    border-radius: 16px;
+  }
+
+  /*
+     Third image centered below
+     the first two.
+  */
+
+  .memory:last-child {
+    grid-column: 1 / -1;
+
+    width: 58%;
+
+    height: 190px;
+
+    justify-self: center;
+
+    margin: 0 auto;
+  }
+
+  /* --------------------------------
+     GIFT
+     -------------------------------- */
+
+  .gift {
+    font-size: 5rem;
+  }
+
+  /* --------------------------------
+     MUSIC BUTTON
+     -------------------------------- */
+
+  .music-note {
+    right: 14px;
+
+    bottom: 14px;
+
+    width: 46px;
+
+    height: 46px;
+  }
+}
+
+/* ==================================================
+   VERY SMALL PHONES
+   ================================================== */
+
+@media (max-width: 380px) {
+
+  .screen {
+    padding: 28px 16px;
+  }
+
+  /* Second page */
+
+  .photo-frame {
+    width: 280px;
+
+    height: 280px;
+  }
+
+  /* Gallery */
+
+  .gallery {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 8px;
+  }
+
+  .memory {
+    height: 140px;
+
+    border-radius: 14px;
+  }
+
+  .memory:last-child {
+    width: 62%;
+
+    height: 155px;
+  }
+
+  .message {
+    font-size: 0.94rem;
+  }
+}
+
+/* ==================================================
+   REDUCED MOTION
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    scroll-behavior:
+      auto !important;
+  }
+}
